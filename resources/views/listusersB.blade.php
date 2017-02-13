@@ -24,7 +24,7 @@
 
 				      <ul class="list-inline list-unstyled">
 				      	<li>
-				      		<form action="/users/{{$user}}->id/edit" method = 'GET'>
+				      		<form action="/users/{{$user->id}}/edit" method = 'GET'>
 				      			{!! csrf_field() !!}
 								<button class="btn btn-success">
 									<span class="glyphicon glyphicon-cog"></span>
@@ -33,7 +33,7 @@
 							</form>
 						</li>
 				      	<li>
-				      		<form action="/users/{{$user}}->id/edit" method = 'GET'>
+				      		<form action="/users/{{$user->id}}/edit" method = 'GET'>
 				      			{!! csrf_field() !!}
 								<button class="btn btn-warning">
 									<span class="glyphicon glyphicon-search"></span>
@@ -42,11 +42,14 @@
 							</form>
 						</li>
 				      	<li>
-				      		<form action="/users/{{$user}}->id" method = 'POST'>
+				      		<form action="/users/{{$user->id}}" method = 'POST'>
 				      			{!! csrf_field() !!}
 				      			<input type="hidden" name = '_method' value = 'DELETE'>
-								<button class="btn btn-danger">
-									<span class="glyphicon glyphicon-trash"></span>
+				      			<input type="hidden" name = 'id' value = '{{$user->id}}'>
+								<button type = 'submit' class="btn btn-danger">
+									<span class="glyphicon glyphicon-trash">
+										
+									</span>
 								</button>
 
 							</form>
