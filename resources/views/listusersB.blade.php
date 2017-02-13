@@ -45,7 +45,6 @@
 				      		<form action="/users/{{$user->id}}" method = 'POST'>
 				      			{!! csrf_field() !!}
 				      			<input type="hidden" name = '_method' value = 'DELETE'>
-				      			<input type="hidden" name = 'id' value = '{{$user->id}}'>
 								<button type = 'submit' class="btn btn-danger">
 									<span class="glyphicon glyphicon-trash">
 										

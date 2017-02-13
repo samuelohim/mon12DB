@@ -38,6 +38,16 @@ class shyzhKZQ extends Controller
     public function store(Request $request)
     {
         //
+
+        $user = new User;
+
+        if ($request->has('name'))
+            $user->name = $request->input('name');
+        if ($request->has('email'))
+            $user->email = $request->input('email');
+
+
+        $user->save();
     }
 
     /**
@@ -59,7 +69,10 @@ class shyzhKZQ extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+
+
+        return view('edituserB', compact('user'));
     }
 
     /**
@@ -72,6 +85,16 @@ class shyzhKZQ extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        if ($request->has('name'))
+           $user->name = $request->input('name');
+        if ($request->has('email'))
+            $user->email = $request->input('email');
+        if ($request->has('password'))
+            $user->password = bcrypt($request->input('password'));
+
+        $user->save();
+        return redirect('/users');
     }
 
     /**
